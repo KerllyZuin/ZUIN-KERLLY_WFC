@@ -1,11 +1,11 @@
-const celdas = []; // Almacena informacion de cada celda 
-const RETICULA = 15; //Numero de filas y columncas de la reticula 
+const celdas = []; // Almacena informacion de cada celda
+const RETICULA = 15; //Numero de filas y columncas de la reticula
 let ancho; // Anchura de cada celda
 let alto; // Altura de cada celda
 
-const azulejos = [];  // Alamacena imagenes de los azulejos 
+const azulejos = []; // Alamacena imagenes de los azulejos
 
-let opcionesI = []; //Almacena opcioens de los azulejos 
+let opcionesI = []; //Almacena opcioens de los azulejos
 
 const reglas = [
   //Reglas de los bordes de cada azulejo
@@ -193,6 +193,62 @@ const reglas = [
     DOWN: 0,
     LEFT: 1,
   },
+
+  {
+    // tile 23
+    UP: 0,
+    RIGHT: 1,
+    DOWN: 0,
+    LEFT: 0,
+  },
+
+  {
+    // tile 24
+    UP: 0,
+    RIGHT: 0,
+    DOWN: 0,
+    LEFT: 1,
+  },
+
+  {
+    // tile 25
+    UP: 0,
+    RIGHT: 0,
+    DOWN: 0,
+    LEFT: 0,
+  },
+
+  {
+    // tile 26
+    UP: 1,
+    RIGHT: 1,
+    DOWN: 0,
+    LEFT: 0,
+  },
+
+  {
+    // tile 27
+    UP: 1,
+    RIGHT: 0,
+    DOWN: 0,
+    LEFT: 1,
+  },
+
+  {
+    // tile 28
+    UP: 1,
+    RIGHT: 1,
+    DOWN: 0,
+    LEFT: 1,
+  },
+
+  {
+    // tile 29
+    UP: 1,
+    RIGHT: 1,
+    DOWN: 0,
+    LEFT: 1,
+  },
 ];
 
 const NA = reglas.length; // Numero total de azulejos
@@ -209,10 +265,10 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(1080, 1080); //Tamaño del lienzo 
+  createCanvas(1080, 1080); //Tamaño del lienzo
 
-  ancho = width / RETICULA; //Calcular el ancho de cada celda 
-  alto = height / RETICULA; //Calcular el alto de cada celda 
+  ancho = width / RETICULA; //Calcular el ancho de cada celda
+  alto = height / RETICULA; //Calcular el alto de cada celda
 
   // Inicializar opciones de azulejos
   for (let i = 0; i < azulejos.length; i++) {
@@ -229,9 +285,9 @@ function setup() {
 }
 
 function draw() {
-//desactivar background(111); // Color de fondo 
+  //desactivar background(111); // Color de fondo
 
-// Filtrar celdas con opciones disponibles y no colapsadas
+  // Filtrar celdas con opciones disponibles y no colapsadas
   const celdasConOpciones = celdas.filter((celda) => celda.opciones.length > 0);
   const celdasDisponibles = celdasConOpciones.filter(
     (celda) => !celda.colapsada
@@ -248,7 +304,7 @@ function draw() {
       return celda.opciones.length == celdasDisponibles[0].opciones.length;
     });
 
-     // Seleccionar una celda al azar de las celdas por colapsar y colapsarla
+    // Seleccionar una celda al azar de las celdas por colapsar y colapsarla
     const celdaSeleccionada = random(celdasPorColapsar);
     celdaSeleccionada.colapsada = true;
 
@@ -310,13 +366,13 @@ function draw() {
           }
         } else {
           //strokeWeight(6);
-          // Dibujar contorno para celdas no colapsadas 
+          // Dibujar contorno para celdas no colapsadas
           //rect(x * ancho, y * alto, ancho, alto);
         }
       }
     }
     //noLoop();
-  } else { 
+  } else {
     // desactivar Restablecer información de celdas si no hay celdas disponibles
     // for (let i = 0; i < RETICULA * RETICULA; i++) {
     // celdas[i] = {
