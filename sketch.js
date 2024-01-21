@@ -193,62 +193,6 @@ const reglas = [
     DOWN: 0,
     LEFT: 1,
   },
-
-  {
-    // tile 23
-    UP: 0,
-    RIGHT: 1,
-    DOWN: 0,
-    LEFT: 0,
-  },
-
-  {
-    // tile 24
-    UP: 0,
-    RIGHT: 0,
-    DOWN: 0,
-    LEFT: 1,
-  },
-
-  {
-    // tile 25
-    UP: 0,
-    RIGHT: 0,
-    DOWN: 0,
-    LEFT: 0,
-  },
-
-  {
-    // tile 26
-    UP: 1,
-    RIGHT: 1,
-    DOWN: 0,
-    LEFT: 0,
-  },
-
-  {
-    // tile 27
-    UP: 1,
-    RIGHT: 0,
-    DOWN: 0,
-    LEFT: 1,
-  },
-
-  {
-    // tile 28
-    UP: 1,
-    RIGHT: 1,
-    DOWN: 0,
-    LEFT: 1,
-  },
-
-  {
-    // tile 29
-    UP: 1,
-    RIGHT: 1,
-    DOWN: 0,
-    LEFT: 1,
-  },
 ];
 
 const NA = reglas.length; // Numero total de azulejos
@@ -374,12 +318,12 @@ function draw() {
     //noLoop();
   } else {
     // desactivar Restablecer información de celdas si no hay celdas disponibles
-    // for (let i = 0; i < RETICULA * RETICULA; i++) {
-    // celdas[i] = {
-    // colapsada: false,
-    // opciones: opcionesI,
-    // };
-    // }
+    for (let i = 0; i < RETICULA * RETICULA; i++) {
+      celdas[i] = {
+        colapsada: false,
+        opciones: opcionesI,
+      };
+    }
   }
 }
 
